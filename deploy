@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+echo "SWITCHING TO BRANCH MASTER"
+git checkout master
+
+echo "BUILDING APP"
+npm run build
+
+echo "DEPLOYING FILES TO SERVER"
+
+sudo rsync -avPr ./build sysadmin@45.79.198.67:/var/www/html/paradigm.tk/public_html/ReactApp
+
+echo "Deployment Complete"
